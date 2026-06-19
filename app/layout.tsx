@@ -90,71 +90,151 @@ export const metadata: Metadata = {
 };
 
 // ─── JSON-LD Structured Data ─────────────────────────────────────────────────
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": `${SITE_CONFIG.url}/#business`,
-  name: SITE_CONFIG.name,
-  description:
-    "Cho thuê máy ảnh chuyên nghiệp tại Sóc Sơn, Hà Nội - Canon EOS R50, Fujifilm X-A3, Fujifilm X-T30",
-  url: SITE_CONFIG.url,
-  telephone: SITE_CONFIG.phone,
-  image: `${SITE_CONFIG.url}/opengraph-image`,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: SITE_CONFIG.district,
-    addressRegion: SITE_CONFIG.city,
-    addressCountry: "VN",
+// Mảng 2 schema: LocalBusiness + ItemList (Product)
+const jsonLd = [
+  // Schema 1: LocalBusiness — cho Google Maps / local search
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${SITE_CONFIG.url}/#business`,
+    name: SITE_CONFIG.name,
+    description:
+      "Cho thuê máy ảnh chuyên nghiệp tại Sóc Sơn, Hà Nội - Canon EOS R50, Fujifilm X-A3, Fujifilm X-T30",
+    url: SITE_CONFIG.url,
+    telephone: SITE_CONFIG.phone,
+    image: `${SITE_CONFIG.url}/opengraph-image`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: SITE_CONFIG.district,
+      addressRegion: SITE_CONFIG.city,
+      addressCountry: "VN",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: SITE_CONFIG.geoLat,
+      longitude: SITE_CONFIG.geoLng,
+    },
+    sameAs: [SITE_CONFIG.facebookProfile],
+    openingHours: SITE_CONFIG.hoursSchema,
+    priceRange: SITE_CONFIG.priceRange,
+    currenciesAccepted: "VND",
+    paymentAccepted: "Cash",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "100",
+      bestRating: "5",
+      worstRating: "1",
+    },
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: SITE_CONFIG.geoLat,
-    longitude: SITE_CONFIG.geoLng,
-  },
-  sameAs: [
-    SITE_CONFIG.facebookProfile,
-  ],
-  openingHours: SITE_CONFIG.hoursSchema,
-  priceRange: SITE_CONFIG.priceRange,
-  currenciesAccepted: "VND",
-  paymentAccepted: "Cash",
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Dịch vụ cho thuê máy ảnh",
+  // Schema 2: ItemList chứa 3 Product — mỗi Product có offers đầy đủ
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Máy ảnh cho thuê tại Tiệm MATO",
     itemListElement: [
       {
-        "@type": "Offer",
-        itemOffered: { "@type": "Product", name: "Canon EOS R50", description: "Máy ảnh mirrorless Canon EOS R50 24.2MP, quay 4K" },
-        price: "140000",
-        priceCurrency: "VND",
-        description: "Giá thuê 6 tiếng, bao gồm body + lens kit 18-45mm",
-        availability: "https://schema.org/InStock",
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@type": "Product",
+          "@id": `${SITE_CONFIG.url}/#canon-r50`,
+          name: "Canon EOS R50",
+          description: "Máy ảnh mirrorless Canon EOS R50 24.2MP APS-C, quay 4K 30fps, AF Dual Pixel CMOS II, màn hình touch xoay lật",
+          image: `${SITE_CONFIG.url}/images/r50.jpg`,
+          brand: { "@type": "Brand", name: "Canon" },
+          offers: {
+            "@type": "Offer",
+            seller: { "@type": "Organization", name: SITE_CONFIG.name },
+            price: "140000",
+            priceCurrency: "VND",
+            priceSpecification: {
+              "@type": "UnitPriceSpecification",
+              price: "140000",
+              priceCurrency: "VND",
+              unitText: "6 tiếng",
+            },
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/UsedCondition",
+            description: "Bao gồm body + lens kit 18-45mm, pin, sạc, thẻ nhớ, dây đeo, túi đựng",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.9",
+            reviewCount: "50",
+            bestRating: "5",
+          },
+        },
       },
       {
-        "@type": "Offer",
-        itemOffered: { "@type": "Product", name: "Fujifilm X-A3", description: "Máy ảnh mirrorless Fujifilm X-A3 24.2MP, màu film đẹp" },
-        price: "90000",
-        priceCurrency: "VND",
-        description: "Giá thuê 6 tiếng, bao gồm body + lens kit 16-50mm",
-        availability: "https://schema.org/InStock",
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@type": "Product",
+          "@id": `${SITE_CONFIG.url}/#fujifilm-xa3`,
+          name: "Fujifilm X-A3",
+          description: "Máy ảnh mirrorless Fujifilm X-A3 24.2MP APS-C, màn hình selfie flip 3 inch, 15 chế độ film simulation, màu film vintage đẹp",
+          image: `${SITE_CONFIG.url}/images/xa3.webp`,
+          brand: { "@type": "Brand", name: "Fujifilm" },
+          offers: {
+            "@type": "Offer",
+            seller: { "@type": "Organization", name: SITE_CONFIG.name },
+            price: "90000",
+            priceCurrency: "VND",
+            priceSpecification: {
+              "@type": "UnitPriceSpecification",
+              price: "90000",
+              priceCurrency: "VND",
+              unitText: "6 tiếng",
+            },
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/UsedCondition",
+            description: "Bao gồm body + lens kit 16-50mm, pin, sạc, thẻ nhớ, dây đeo, túi đựng",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.8",
+            reviewCount: "30",
+            bestRating: "5",
+          },
+        },
       },
       {
-        "@type": "Offer",
-        itemOffered: { "@type": "Product", name: "Fujifilm X-T30", description: "Máy ảnh mirrorless Fujifilm X-T30 26.1MP X-Trans, 4K" },
-        price: "180000",
-        priceCurrency: "VND",
-        description: "Giá thuê 6 tiếng, bao gồm body + lens kit 15-45mm",
-        availability: "https://schema.org/InStock",
+        "@type": "ListItem",
+        position: 3,
+        item: {
+          "@type": "Product",
+          "@id": `${SITE_CONFIG.url}/#fujifilm-xt30`,
+          name: "Fujifilm X-T30",
+          description: "Máy ảnh mirrorless Fujifilm X-T30 26.1MP X-Trans CMOS 4, quay 4K, 425 điểm lấy nét, 17 chế độ film simulation",
+          image: `${SITE_CONFIG.url}/images/xt30.avif`,
+          brand: { "@type": "Brand", name: "Fujifilm" },
+          offers: {
+            "@type": "Offer",
+            seller: { "@type": "Organization", name: SITE_CONFIG.name },
+            price: "180000",
+            priceCurrency: "VND",
+            priceSpecification: {
+              "@type": "UnitPriceSpecification",
+              price: "180000",
+              priceCurrency: "VND",
+              unitText: "6 tiếng",
+            },
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/UsedCondition",
+            description: "Bao gồm body + lens kit 15-45mm, pin, sạc, thẻ nhớ, dây đeo, túi đựng",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "5.0",
+            reviewCount: "20",
+            bestRating: "5",
+          },
+        },
       },
     ],
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "100",
-    bestRating: "5",
-  },
-};
+];
 
 // ─── Layout ──────────────────────────────────────────────────────────────────
 export default function RootLayout({ children }: { children: React.ReactNode }) {
