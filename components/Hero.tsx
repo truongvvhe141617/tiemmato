@@ -37,13 +37,13 @@ export default function Hero() {
         </h1>
 
         <p className="text-base md:text-xl text-mato-text-light font-medium mb-3 uppercase tracking-widest">
-          Máy Ảnh Cho Thuê Tại Hà Nội
+          Máy Ảnh Cho Thuê Tại Sóc Sơn, Hà Nội
         </p>
 
         <p className="text-sm md:text-lg text-mato-text max-w-2xl mx-auto mb-8 leading-relaxed px-2">
           Sở hữu những bức ảnh đẹp không cần bỏ ra hàng triệu đồng mua máy.
-          Thuê Canon EOS R50, Fujifilm X-A3, X-T30 — đầy đủ phụ kiện,
-          thủ tục đơn giản.
+          Thuê Canon EOS R50, Fujifilm X-A3, X-T30 tại Sóc Sơn — đầy đủ phụ kiện,
+          thủ tục đơn giản, giao nhận khu vực Sóc Sơn và lân cận.
         </p>
 
         {/* Price highlight */}

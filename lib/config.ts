@@ -10,16 +10,20 @@ export const SITE_CONFIG = {
   // Liên hệ
   phone: "0869209674",
   phoneDisplay: "0869 209 674",
-  address: "Bắc Từ Liêm, Hà Nội",
+  address: "Sóc Sơn, Hà Nội",
+  addressFull: "Sóc Sơn, Hà Nội",   // cập nhật số nhà/đường khi có
+  district: "Sóc Sơn",
+  city: "Hà Nội",
   hours: "Thứ 2 – Chủ Nhật: 7:00 – 21:00",
   hoursSchema: "Mo-Su 07:00-21:00",
 
+  // Geo coordinates — Sóc Sơn, Hà Nội
+  geoLat: "21.2547",
+  geoLng: "105.8412",
+
   // Mạng xã hội
-  // facebookProfile: trang cá nhân / share link
   facebookProfile: "https://www.facebook.com/share/1AbyTMuZ7i/?mibextid=wwXIfr",
-  // facebookPage: fanpage (cập nhật khi có URL fanpage riêng)
   facebookPage: "https://www.facebook.com/share/1AbyTMuZ7i/?mibextid=wwXIfr",
-  // messengerUrl: link nhắn tin trực tiếp qua Messenger
   messengerUrl: "https://www.facebook.com/share/1AbyTMuZ7i/?mibextid=wwXIfr",
 
   // SEO

@@ -90,7 +90,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-white/60 text-xs uppercase tracking-wide">Địa chỉ</p>
-                  <p className="text-white font-bold">{SITE_CONFIG.address}</p>
+                  <p className="text-white font-bold">{SITE_CONFIG.addressFull}</p>
                 </div>
               </div>
             </div>

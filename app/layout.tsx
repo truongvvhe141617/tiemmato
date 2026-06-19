@@ -15,22 +15,24 @@ export const metadata: Metadata = {
 
   // Title template: các sub-page sẽ tự động thành "Tên trang | Tiệm MATO"
   title: {
-    default: "Tiệm MATO - Cho Thuê Máy Ảnh Giá Rẻ Tại Hà Nội | Canon, Fujifilm",
+    default: "Tiệm MATO - Cho Thuê Máy Ảnh Giá Rẻ Tại Sóc Sơn, Hà Nội | Canon, Fujifilm",
     template: "%s | Tiệm MATO",
   },
   description:
-    "Tiệm MATO cho thuê máy ảnh chuyên nghiệp tại Bắc Từ Liêm, Hà Nội. Canon EOS R50, Fujifilm X-A3, Fujifilm X-T30. Giá chỉ từ 90.000đ/6 tiếng. Đầy đủ phụ kiện, thủ tục đơn giản.",
+    "Tiệm MATO cho thuê máy ảnh chuyên nghiệp tại Sóc Sơn, Hà Nội. Canon EOS R50, Fujifilm X-A3, Fujifilm X-T30. Giá chỉ từ 90.000đ/6 tiếng. Đầy đủ phụ kiện, thủ tục đơn giản.",
   keywords: [
+    "cho thuê máy ảnh Sóc Sơn",
+    "thuê máy ảnh Sóc Sơn Hà Nội",
     "cho thuê máy ảnh Hà Nội",
-    "thuê máy ảnh giá rẻ",
-    "Canon EOS R50 cho thuê",
+    "thuê máy ảnh giá rẻ Sóc Sơn",
+    "Canon EOS R50 cho thuê Sóc Sơn",
     "Fujifilm X-A3 cho thuê",
     "Fujifilm X-T30 cho thuê",
-    "tiệm MATO",
-    "thuê máy ảnh Bắc Từ Liêm",
-    "cho thuê máy ảnh mirrorless",
-    "thuê máy ảnh theo ngày Hà Nội",
-    "máy ảnh cho thuê giá rẻ",
+    "tiệm MATO Sóc Sơn",
+    "thuê máy ảnh mirrorless Sóc Sơn",
+    "thuê máy ảnh theo ngày Sóc Sơn",
+    "máy ảnh cho thuê giá rẻ Hà Nội",
+    "cho thuê máy ảnh gần sân bay Nội Bài",
   ],
   authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
   creator: SITE_CONFIG.name,
@@ -42,18 +44,17 @@ export const metadata: Metadata = {
     locale: "vi_VN",
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
-    title: "Tiệm MATO - Cho Thuê Máy Ảnh Giá Rẻ Tại Hà Nội",
+    title: "Tiệm MATO - Cho Thuê Máy Ảnh Giá Rẻ Tại Sóc Sơn, Hà Nội",
     description:
-      "Cho thuê máy ảnh Canon EOS R50, Fujifilm X-A3, Fujifilm X-T30 tại Hà Nội. Giá từ 90.000đ/6 tiếng. Đầy đủ phụ kiện, thủ tục đơn giản.",
-    // Next.js tự dùng app/opengraph-image.tsx — không cần khai báo images thủ công
+      "Cho thuê máy ảnh Canon EOS R50, Fujifilm X-A3, Fujifilm X-T30 tại Sóc Sơn, Hà Nội. Giá từ 90.000đ/6 tiếng. Đầy đủ phụ kiện, thủ tục đơn giản.",
   },
 
   // ─── Twitter / X card ────────────────────────────────────────────────────
   twitter: {
     card: "summary_large_image",
-    title: "Tiệm MATO - Cho Thuê Máy Ảnh Giá Rẻ Tại Hà Nội",
+    title: "Tiệm MATO - Cho Thuê Máy Ảnh Giá Rẻ Tại Sóc Sơn, Hà Nội",
     description:
-      "Cho thuê máy ảnh Canon EOS R50, Fujifilm X-A3, Fujifilm X-T30. Giá từ 90.000đ/6 tiếng.",
+      "Cho thuê máy ảnh Canon EOS R50, Fujifilm X-A3, Fujifilm X-T30 tại Sóc Sơn. Giá từ 90.000đ/6 tiếng.",
   },
 
   // ─── Robots ──────────────────────────────────────────────────────────────
@@ -95,20 +96,20 @@ const jsonLd = {
   "@id": `${SITE_CONFIG.url}/#business`,
   name: SITE_CONFIG.name,
   description:
-    "Cho thuê máy ảnh chuyên nghiệp tại Hà Nội - Canon EOS R50, Fujifilm X-A3, Fujifilm X-T30",
+    "Cho thuê máy ảnh chuyên nghiệp tại Sóc Sơn, Hà Nội - Canon EOS R50, Fujifilm X-A3, Fujifilm X-T30",
   url: SITE_CONFIG.url,
   telephone: SITE_CONFIG.phone,
   image: `${SITE_CONFIG.url}/opengraph-image`,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Bắc Từ Liêm",
-    addressRegion: "Hà Nội",
+    addressLocality: SITE_CONFIG.district,
+    addressRegion: SITE_CONFIG.city,
     addressCountry: "VN",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: "21.0499",
-    longitude: "105.7672",
+    latitude: SITE_CONFIG.geoLat,
+    longitude: SITE_CONFIG.geoLng,
   },
   sameAs: [
     SITE_CONFIG.facebookProfile,
