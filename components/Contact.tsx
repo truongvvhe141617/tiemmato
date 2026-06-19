@@ -1,3 +1,11 @@
+import Image from "next/image";
+
+const contactCameras = [
+  { label: "Canon EOS R50", price: "Từ 140.000đ/6 tiếng", image: "/images/r50.jpg" },
+  { label: "Fujifilm X-A2", price: "Từ 90.000đ/6 tiếng", image: "/images/xa3.webp" },
+  { label: "Fujifilm X-T30", price: "Từ 180.000đ/6 tiếng", image: "/images/xt30.avif" },
+];
+
 export default function Contact() {
   return (
     <section
@@ -42,7 +50,7 @@ export default function Contact() {
               </a>
 
               <a
-                href="https://www.facebook.com/NguyenThiThoaa"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 bg-white/10 hover:bg-white/20 rounded-2xl p-4 transition-colors group"
@@ -116,17 +124,23 @@ export default function Contact() {
               Chụp ảnh đẹp không cần mua máy đắt tiền
             </p>
 
-            <div className="space-y-4 mb-6">
-              {[
-                { label: "Canon EOS R50", price: "Từ 140.000đ/6 tiếng" },
-                { label: "Fujifilm X-A2", price: "Từ 90.000đ/6 tiếng" },
-                { label: "Fujifilm X-T30", price: "Từ 180.000đ/6 tiếng" },
-              ].map((item) => (
+            <div className="space-y-3 mb-6">
+              {contactCameras.map((item) => (
                 <div
                   key={item.label}
-                  className="flex items-center justify-between py-3 border-b border-mato-cream-dark last:border-0"
+                  className="flex items-center gap-3 py-3 border-b border-mato-cream-dark last:border-0"
                 >
-                  <span className="text-sm font-semibold text-mato-brown-dark">
+                  {/* Ảnh máy nhỏ */}
+                  <div className="relative w-14 h-10 rounded-lg overflow-hidden bg-mato-cream flex-shrink-0">
+                    <Image
+                      src={item.image}
+                      alt={item.label}
+                      fill
+                      sizes="56px"
+                      className="object-contain p-1"
+                    />
+                  </div>
+                  <span className="text-sm font-semibold text-mato-brown-dark flex-1">
                     {item.label}
                   </span>
                   <span className="text-sm font-bold text-mato-orange">
@@ -144,7 +158,7 @@ export default function Contact() {
                 📞 Gọi: 0869 209 674
               </a>
               <a
-                href="https://www.facebook.com/NguyenThiThoaa"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition-colors"

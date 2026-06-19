@@ -1,7 +1,12 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
-const cameras = ["Canon EOS R50", "Fujifilm X-A2", "Fujifilm X-T30"];
+const cameras = [
+  { name: "Canon EOS R50", image: "/images/r50.jpg" },
+  { name: "Fujifilm X-A2", image: "/images/xa3.webp" },
+  { name: "Fujifilm X-T30", image: "/images/xt30.avif" },
+];
 
 const pricing = [
   {
@@ -78,7 +83,7 @@ export default function PricingTable() {
           </button>
           {cameras.map((cam, i) => (
             <button
-              key={cam}
+              key={cam.name}
               onClick={() => setSelectedCamera(i)}
               className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 selectedCamera === i
@@ -86,23 +91,36 @@ export default function PricingTable() {
                   : "bg-white text-mato-brown border border-mato-brown/30"
               }`}
             >
-              {cam}
+              {cam.name}
             </button>
           ))}
         </div>
 
         {/* Pricing Table - Desktop */}
         <div className="hidden md:block bg-white rounded-3xl shadow-xl overflow-hidden border border-mato-cream-dark">
-          {/* Table header */}
+          {/* Table header with camera images */}
           <div className="grid grid-cols-4 bg-mato-brown text-white">
             <div className="p-5 flex items-center gap-2">
               <span>⏱️</span>
               <span className="font-semibold">Thời gian thuê</span>
             </div>
             {cameras.map((cam) => (
-              <div key={cam} className="p-5 text-center border-l border-white/10">
-                <p className="font-bold text-sm">{cam}</p>
-                <p className="text-xs text-white/60 mt-0.5">Body + lens kit</p>
+              <div
+                key={cam.name}
+                className="p-4 text-center border-l border-white/10 flex flex-col items-center gap-2"
+              >
+                {/* Thumbnail ảnh máy */}
+                <div className="relative w-16 h-12 rounded-lg overflow-hidden bg-white/10">
+                  <Image
+                    src={cam.image}
+                    alt={cam.name}
+                    fill
+                    sizes="64px"
+                    className="object-contain p-1"
+                  />
+                </div>
+                <p className="font-bold text-sm leading-tight">{cam.name}</p>
+                <p className="text-xs text-white/60">Body + lens kit</p>
               </div>
             ))}
           </div>
@@ -173,17 +191,31 @@ export default function PricingTable() {
               <div className="grid grid-cols-3 gap-3">
                 {cameras.map((cam, i) => (
                   <div
-                    key={cam}
-                    className={`rounded-xl p-3 text-center ${
+                    key={cam.name}
+                    className={`rounded-xl overflow-hidden border transition-opacity ${
                       selectedCamera === null || selectedCamera === i
-                        ? "bg-mato-cream"
-                        : "opacity-30 bg-mato-cream"
+                        ? "border-mato-brown/20 opacity-100"
+                        : "border-transparent opacity-30"
                     }`}
                   >
-                    <p className="text-xs text-mato-text-light mb-1">{cam.split(" ").slice(-1)}</p>
-                    <p className="font-bold text-mato-brown-dark text-sm">
-                      {row.prices[i]}
-                    </p>
+                    {/* Mini camera image */}
+                    <div className="relative h-14 bg-mato-cream">
+                      <Image
+                        src={cam.image}
+                        alt={cam.name}
+                        fill
+                        sizes="120px"
+                        className="object-contain p-2"
+                      />
+                    </div>
+                    <div className="bg-white p-2 text-center">
+                      <p className="text-xs text-mato-text-light mb-0.5 truncate">
+                        {cam.name.split(" ").slice(-1)[0]}
+                      </p>
+                      <p className="font-bold text-mato-brown-dark text-sm">
+                        {row.prices[i]}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -198,7 +230,10 @@ export default function PricingTable() {
           </h3>
           <ul className="grid sm:grid-cols-2 gap-3">
             {notes.map((note) => (
-              <li key={note} className="flex items-start gap-2 text-sm text-mato-text">
+              <li
+                key={note}
+                className="flex items-start gap-2 text-sm text-mato-text"
+              >
                 <span className="text-amber-400 mt-0.5 flex-shrink-0">•</span>
                 {note}
               </li>
@@ -207,8 +242,8 @@ export default function PricingTable() {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-10">
-          <a href="tel:0869209674" className="btn-primary text-base mr-4">
+        <div className="text-center mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="tel:0869209674" className="btn-primary text-base">
             📞 Đặt Thuê Ngay: 0869 209 674
           </a>
           <a

@@ -61,7 +61,7 @@ export default function Hero() {
             Xem Bảng Giá
           </a>
           <a
-            href="https://www.facebook.com/NguyenThiThoaa"
+            href=""
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary text-base"

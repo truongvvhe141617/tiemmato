@@ -100,7 +100,7 @@ export default function RootLayout({
                 addressCountry: "VN",
               },
               sameAs: [
-                "https://www.facebook.com/profile.php?id=NguyenThiThoaa",
+                "",
               ],
               openingHours: "Mo-Su 07:00-21:00",
               priceRange: "90.000đ - 220.000đ",

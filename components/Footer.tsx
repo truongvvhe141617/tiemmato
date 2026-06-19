@@ -63,7 +63,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.facebook.com/NguyenThiThoaa"
+                  href=""
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"

@@ -27,7 +27,7 @@ export default function FloatingCTA() {
             <span>Gọi: 0869 209 674</span>
           </a>
           <a
-            href="https://www.facebook.com/NguyenThiThoaa"
+            href=""
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-blue-600 text-white px-4 py-3 rounded-2xl shadow-lg hover:bg-blue-700 transition-colors text-sm font-semibold"

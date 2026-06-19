@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const cameras = [
   {
     id: "canon-r50",
@@ -5,8 +7,8 @@ const cameras = [
     tagline: "Mirrorless nhỏ gọn, chất lượng chuyên nghiệp",
     badge: "Phổ biến",
     badgeColor: "bg-blue-500",
-    emoji: "📷",
-    color: "from-slate-700 to-slate-900",
+    image: "/images/r50.jpg",
+    bgColor: "from-slate-100 to-slate-200",
     features: [
       "Body máy + lens kit 18-45mm",
       "Pin + sạc + thẻ nhớ 64GB",
@@ -27,8 +29,8 @@ const cameras = [
     tagline: "Màu film đặc trưng Fujifilm, selfie hoàn hảo",
     badge: "Giá tốt nhất",
     badgeColor: "bg-green-500",
-    emoji: "🎞️",
-    color: "from-amber-700 to-amber-900",
+    image: "/images/xa3.webp",
+    bgColor: "from-amber-50 to-amber-100",
     features: [
       "Body máy + lens kit 16-50mm",
       "Pin + sạc + thẻ nhớ",
@@ -37,7 +39,7 @@ const cameras = [
     specs: [
       { label: "Cảm biến", value: "16.3MP APS-C" },
       { label: "Quay phim", value: "Full HD 1080p" },
-      { label: "Màn hình", value: "Selfie flip 3\"" },
+      { label: "Màn hình", value: 'Selfie flip 3"' },
       { label: "Film sim", value: "11 chế độ" },
     ],
     highlight: "Ảnh màu film vintage cực đẹp, dễ dùng",
@@ -49,8 +51,8 @@ const cameras = [
     tagline: "Hiệu suất cao, ảnh chất lượng đỉnh cao",
     badge: "Cao cấp",
     badgeColor: "bg-purple-500",
-    emoji: "⭐",
-    color: "from-zinc-700 to-zinc-900",
+    image: "/images/xt30.avif",
+    bgColor: "from-zinc-100 to-zinc-200",
     features: [
       "Body máy + lens kit 15-45mm",
       "Pin + sạc + thẻ nhớ",
@@ -90,24 +92,33 @@ export default function CameraShowcase() {
               key={camera.id}
               className="bg-mato-cream rounded-3xl overflow-hidden card-hover border border-mato-cream-dark shadow-sm"
             >
-              {/* Camera visual */}
+              {/* Camera image area */}
               <div
-                className={`relative h-52 bg-gradient-to-br ${camera.color} flex items-center justify-center`}
+                className={`relative h-56 bg-gradient-to-br ${camera.bgColor} flex items-center justify-center overflow-hidden`}
               >
-                <span className="text-8xl drop-shadow-2xl">{camera.emoji}</span>
+                <Image
+                  src={camera.image}
+                  alt={`${camera.name} - máy ảnh cho thuê tại Tiệm MATO`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-contain p-6 drop-shadow-lg transition-transform duration-500 hover:scale-105"
+                  priority={camera.id === "canon-r50"}
+                />
+
                 {/* Badge */}
                 <span
-                  className={`absolute top-4 right-4 ${camera.badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full shadow`}
+                  className={`absolute top-4 right-4 z-10 ${camera.badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full shadow`}
                 >
                   {camera.badge}
                 </span>
+
                 {/* Price tag */}
-                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur rounded-xl px-3 py-1.5 shadow">
-                  <p className="text-xs text-mato-text-light">Từ</p>
+                <div className="absolute bottom-4 left-4 z-10 bg-white/95 backdrop-blur rounded-xl px-3 py-1.5 shadow-md">
+                  <p className="text-xs text-mato-text-light leading-none mb-0.5">Từ</p>
                   <p className="text-base font-bold text-mato-orange leading-none">
                     {camera.priceFrom}
                   </p>
-                  <p className="text-xs text-mato-text-light">/6 tiếng</p>
+                  <p className="text-xs text-mato-text-light leading-none mt-0.5">/6 tiếng</p>
                 </div>
               </div>
 
@@ -132,8 +143,11 @@ export default function CameraShowcase() {
                   </p>
                   <ul className="space-y-1.5">
                     {camera.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm text-mato-text">
-                        <span className="text-mato-orange mt-0.5">•</span>
+                      <li
+                        key={f}
+                        className="flex items-start gap-2 text-sm text-mato-text"
+                      >
+                        <span className="text-mato-orange mt-0.5 flex-shrink-0">•</span>
                         {f}
                       </li>
                     ))}
@@ -147,7 +161,10 @@ export default function CameraShowcase() {
                   </p>
                   <div className="grid grid-cols-2 gap-2">
                     {camera.specs.map((spec) => (
-                      <div key={spec.label} className="bg-white rounded-lg px-2 py-1.5">
+                      <div
+                        key={spec.label}
+                        className="bg-white rounded-lg px-2 py-1.5"
+                      >
                         <p className="text-xs text-mato-text-light">{spec.label}</p>
                         <p className="text-xs font-semibold text-mato-brown-dark">
                           {spec.value}
