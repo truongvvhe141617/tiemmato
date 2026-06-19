@@ -5,7 +5,7 @@
 export const SITE_CONFIG = {
   name: "Tiệm MATO",
   tagline: "Máy ảnh cho thuê – Lưu giữ khoảnh khắc đẹp",
-  url: "https://tiemmato.vercel.app",
+  url: "https://tiemmato.com",
 
   // Liên hệ
   phone: "0869209674",
