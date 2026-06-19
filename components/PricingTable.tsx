@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { SITE_CONFIG } from "@/lib/config";
 
 const cameras = [
   { name: "Canon EOS R50", image: "/images/r50.jpg" },
-  { name: "Fujifilm X-A2", image: "/images/xa3.webp" },
+  { name: "Fujifilm X-A3", image: "/images/xa3.webp" },
   { name: "Fujifilm X-T30", image: "/images/xt30.avif" },
 ];
 
@@ -69,11 +70,11 @@ export default function PricingTable() {
           </p>
         </div>
 
-        {/* Mobile camera filter */}
-        <div className="flex gap-2 overflow-x-auto pb-2 mb-6 md:hidden">
+        {/* Mobile camera filter — tên viết tắt cho gọn */}
+        <div className="flex gap-2 overflow-x-auto pb-2 mb-6 md:hidden scrollbar-hide">
           <button
             onClick={() => setSelectedCamera(null)}
-            className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+            className={`flex-shrink-0 px-3 py-2 rounded-full text-xs font-semibold transition-colors ${
               selectedCamera === null
                 ? "bg-mato-brown text-white"
                 : "bg-white text-mato-brown border border-mato-brown/30"
@@ -85,13 +86,14 @@ export default function PricingTable() {
             <button
               key={cam.name}
               onClick={() => setSelectedCamera(i)}
-              className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              className={`flex-shrink-0 px-3 py-2 rounded-full text-xs font-semibold transition-colors ${
                 selectedCamera === i
                   ? "bg-mato-brown text-white"
                   : "bg-white text-mato-brown border border-mato-brown/30"
               }`}
             >
-              {cam.name}
+              {/* Viết tắt: Canon R50, X-A3, X-T30 */}
+              {cam.name.replace("Canon EOS ", "").replace("Fujifilm ", "")}
             </button>
           ))}
         </div>
@@ -116,7 +118,7 @@ export default function PricingTable() {
                     alt={cam.name}
                     fill
                     sizes="64px"
-                    className="object-contain p-1"
+                    className="object-contain p-1 mix-blend-multiply"
                   />
                 </div>
                 <p className="font-bold text-sm leading-tight">{cam.name}</p>
@@ -205,7 +207,7 @@ export default function PricingTable() {
                         alt={cam.name}
                         fill
                         sizes="120px"
-                        className="object-contain p-2"
+                        className="object-contain p-2 mix-blend-multiply"
                       />
                     </div>
                     <div className="bg-white p-2 text-center">

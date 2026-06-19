@@ -57,7 +57,7 @@ const reviews = [
     avatar: "👩‍🦱",
     rating: 5,
     text: "Lần đầu thuê máy ảnh, chủ tiệm hướng dẫn rất tỉ mỉ. Ảnh Fujifilm màu film đẹp không chê được.",
-    camera: "Fujifilm X-A2",
+    camera: "Fujifilm X-A3",
   },
 ];
 

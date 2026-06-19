@@ -11,17 +11,27 @@ import FloatingCTA from "@/components/FloatingCTA";
 
 export default function Home() {
   return (
-    <main>
+    <>
+      {/* Skip navigation — accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-mato-orange focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold"
+      >
+        Bỏ qua điều hướng
+      </a>
+
       <Header />
-      <Hero />
-      <CameraShowcase />
-      <PricingTable />
-      <HowToRent />
-      <WhyChooseUs />
-      <FAQ />
-      <Contact />
+      <main id="main-content">
+        <Hero />
+        <CameraShowcase />
+        <PricingTable />
+        <HowToRent />
+        <WhyChooseUs />
+        <FAQ />
+        <Contact />
+      </main>
       <Footer />
       <FloatingCTA />
-    </main>
+    </>
   );
 }

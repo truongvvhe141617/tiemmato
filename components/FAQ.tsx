@@ -68,6 +68,8 @@ export default function FAQ() {
                 onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
                 className="w-full flex items-center gap-3 p-5 text-left hover:bg-mato-cream/50 transition-colors"
                 aria-expanded={openIdx === idx}
+                aria-controls={`faq-answer-${idx}`}
+                id={`faq-question-${idx}`}
               >
                 <span
                   className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${
@@ -84,7 +86,12 @@ export default function FAQ() {
               </button>
 
               {openIdx === idx && (
-                <div className="px-5 pb-5 pt-0 text-sm text-mato-text leading-relaxed border-t border-mato-cream-dark">
+                <div
+                  id={`faq-answer-${idx}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${idx}`}
+                  className="px-5 pb-5 pt-0 text-sm text-mato-text leading-relaxed border-t border-mato-cream-dark"
+                >
                   <p className="pt-3">{faq.a}</p>
                 </div>
               )}

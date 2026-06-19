@@ -1,8 +1,9 @@
 import Image from "next/image";
+import { SITE_CONFIG } from "@/lib/config";
 
 const contactCameras = [
   { label: "Canon EOS R50", price: "Từ 140.000đ/6 tiếng", image: "/images/r50.jpg" },
-  { label: "Fujifilm X-A2", price: "Từ 90.000đ/6 tiếng", image: "/images/xa3.webp" },
+  { label: "Fujifilm X-A3", price: "Từ 90.000đ/6 tiếng", image: "/images/xa3.webp" },
   { label: "Fujifilm X-T30", price: "Từ 180.000đ/6 tiếng", image: "/images/xt30.avif" },
 ];
 
@@ -30,39 +31,35 @@ export default function Contact() {
               vòng 15 phút trong giờ làm việc.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               <a
-                href="tel:0869209674"
+                href={`tel:${SITE_CONFIG.phone}`}
                 className="flex items-center gap-4 bg-white/10 hover:bg-white/20 rounded-2xl p-4 transition-colors group"
-                aria-label="Gọi điện cho Tiệm MATO"
+                aria-label={`Gọi điện cho Tiệm MATO: ${SITE_CONFIG.phoneDisplay}`}
               >
-                <div className="w-12 h-12 bg-mato-orange rounded-xl flex items-center justify-center text-xl shadow-md">
+                <div className="w-12 h-12 bg-mato-orange rounded-xl flex items-center justify-center text-xl shadow-md flex-shrink-0">
                   📞
                 </div>
                 <div>
-                  <p className="text-white/60 text-xs uppercase tracking-wide">
-                    Điện thoại / Zalo
-                  </p>
+                  <p className="text-white/60 text-xs uppercase tracking-wide">Điện thoại / Zalo</p>
                   <p className="text-white font-bold text-lg group-hover:text-mato-brown-light transition-colors">
-                    0869 209 674
+                    {SITE_CONFIG.phoneDisplay}
                   </p>
                 </div>
               </a>
 
               <a
-                href=""
+                href={SITE_CONFIG.facebookProfile}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 bg-white/10 hover:bg-white/20 rounded-2xl p-4 transition-colors group"
-                aria-label="Facebook Tiệm MATO"
+                aria-label="Facebook cá nhân Nguyễn Thị Thoả"
               >
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-xl shadow-md">
+                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-xl shadow-md flex-shrink-0">
                   📘
                 </div>
                 <div>
-                  <p className="text-white/60 text-xs uppercase tracking-wide">
-                    Facebook
-                  </p>
+                  <p className="text-white/60 text-xs uppercase tracking-wide">Facebook</p>
                   <p className="text-white font-bold group-hover:text-blue-300 transition-colors">
                     Nguyen Thi Thoaa
                   </p>
@@ -70,19 +67,17 @@ export default function Contact() {
               </a>
 
               <a
-                href="https://www.facebook.com/TiemMato"
+                href={SITE_CONFIG.facebookPage}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 bg-white/10 hover:bg-white/20 rounded-2xl p-4 transition-colors group"
                 aria-label="Fanpage Tiệm MATO"
               >
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-xl shadow-md">
+                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-xl shadow-md flex-shrink-0">
                   🏪
                 </div>
                 <div>
-                  <p className="text-white/60 text-xs uppercase tracking-wide">
-                    Fanpage
-                  </p>
+                  <p className="text-white/60 text-xs uppercase tracking-wide">Fanpage</p>
                   <p className="text-white font-bold group-hover:text-blue-300 transition-colors">
                     Tiệm Mato - Thuê/chụp giá rẻ
                   </p>
@@ -90,60 +85,51 @@ export default function Contact() {
               </a>
 
               <div className="flex items-center gap-4 bg-white/10 rounded-2xl p-4">
-                <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center text-xl shadow-md">
+                <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center text-xl shadow-md flex-shrink-0">
                   📍
                 </div>
                 <div>
-                  <p className="text-white/60 text-xs uppercase tracking-wide">
-                    Địa chỉ
-                  </p>
-                  <p className="text-white font-bold">
-                    Bắc Từ Liêm, Hà Nội
-                  </p>
+                  <p className="text-white/60 text-xs uppercase tracking-wide">Địa chỉ</p>
+                  <p className="text-white font-bold">{SITE_CONFIG.address}</p>
                 </div>
               </div>
             </div>
 
             {/* Hours */}
-            <div className="mt-6 bg-white/10 rounded-2xl p-4">
-              <p className="text-white/60 text-xs uppercase tracking-wide mb-2">
-                ⏰ Giờ Hoạt Động
-              </p>
-              <p className="text-white font-semibold">
-                Thứ 2 – Chủ Nhật: 7:00 – 21:00
-              </p>
+            <div className="mt-4 bg-white/10 rounded-2xl p-4">
+              <p className="text-white/60 text-xs uppercase tracking-wide mb-1">⏰ Giờ Hoạt Động</p>
+              <p className="text-white font-semibold">{SITE_CONFIG.hours}</p>
             </div>
           </div>
 
           {/* Right: Quick contact card */}
-          <div className="bg-white rounded-3xl p-8 shadow-2xl">
-            <h3 className="font-serif text-2xl font-bold text-mato-brown-dark mb-2">
+          <div className="bg-white rounded-3xl p-6 md:p-8 shadow-2xl">
+            <h3 className="font-serif text-2xl font-bold text-mato-brown-dark mb-1">
               Đặt Ngay
             </h3>
-            <p className="text-mato-text-light text-sm mb-6">
+            <p className="text-mato-text-light text-sm mb-5">
               Chụp ảnh đẹp không cần mua máy đắt tiền
             </p>
 
-            <div className="space-y-3 mb-6">
+            <div className="space-y-1 mb-5">
               {contactCameras.map((item) => (
                 <div
                   key={item.label}
-                  className="flex items-center gap-3 py-3 border-b border-mato-cream-dark last:border-0"
+                  className="flex items-center gap-3 py-2.5 border-b border-mato-cream-dark last:border-0"
                 >
-                  {/* Ảnh máy nhỏ */}
                   <div className="relative w-14 h-10 rounded-lg overflow-hidden bg-mato-cream flex-shrink-0">
                     <Image
                       src={item.image}
                       alt={item.label}
                       fill
                       sizes="56px"
-                      className="object-contain p-1"
+                      className="object-contain p-1 mix-blend-multiply"
                     />
                   </div>
                   <span className="text-sm font-semibold text-mato-brown-dark flex-1">
                     {item.label}
                   </span>
-                  <span className="text-sm font-bold text-mato-orange">
+                  <span className="text-sm font-bold text-mato-orange whitespace-nowrap">
                     {item.price}
                   </span>
                 </div>
@@ -152,13 +138,13 @@ export default function Contact() {
 
             <div className="space-y-3">
               <a
-                href="tel:0869209674"
+                href={`tel:${SITE_CONFIG.phone}`}
                 className="btn-primary w-full block text-center"
               >
-                📞 Gọi: 0869 209 674
+                📞 Gọi: {SITE_CONFIG.phoneDisplay}
               </a>
               <a
-                href=""
+                href={SITE_CONFIG.facebookProfile}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition-colors"

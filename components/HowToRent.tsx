@@ -58,17 +58,17 @@ export default function HowToRent() {
 
         {/* Steps */}
         <div className="relative">
-          {/* Connector line - desktop */}
-          <div className="hidden lg:block absolute top-16 left-0 right-0 h-0.5 bg-mato-cream-dark mx-28" />
+          {/* Connector line — canh giữa icon tròn */}
+          <div className="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-mato-cream-dark" style={{ marginLeft: "10%", marginRight: "10%" }} />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4 lg:items-stretch">
             {steps.map((step, idx) => (
               <div
                 key={step.step}
                 className="relative flex flex-col items-center text-center"
               >
-                {/* Circle */}
-                <div className="relative z-10 w-16 h-16 bg-mato-brown rounded-full flex items-center justify-center shadow-lg mb-4 group-hover:bg-mato-orange transition-colors">
+                {/* Circle — fixed size, không bị lệch */}
+                <div className="relative z-10 w-16 h-16 flex-shrink-0 bg-mato-brown rounded-full flex items-center justify-center shadow-lg mb-4">
                   <span className="text-2xl">{step.icon}</span>
                 </div>
 
@@ -77,13 +77,17 @@ export default function HowToRent() {
                   {idx + 1}
                 </span>
 
-                <h3 className="font-bold text-mato-brown-dark text-sm mb-2">
+                {/* Title — fixed min-height để các title align nhau */}
+                <h3 className="font-bold text-mato-brown-dark text-sm mb-2 min-h-[2.5rem] flex items-center justify-center leading-tight">
                   {step.title}
                 </h3>
-                <p className="text-xs text-mato-text-light leading-relaxed mb-3">
+
+                {/* Description — flex-1 đẩy badge xuống đáy */}
+                <p className="text-xs text-mato-text-light leading-relaxed mb-3 flex-1">
                   {step.description}
                 </p>
-                <span className="inline-block bg-mato-cream text-mato-brown text-xs px-2 py-1 rounded-full border border-mato-brown/10">
+
+                <span className="inline-block bg-mato-cream text-mato-brown text-xs px-2 py-1 rounded-full border border-mato-brown/10 mt-auto">
                   {step.detail}
                 </span>
               </div>

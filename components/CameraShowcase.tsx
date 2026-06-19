@@ -24,8 +24,8 @@ const cameras = [
     priceFrom: "140.000đ",
   },
   {
-    id: "fujifilm-xa2",
-    name: "Fujifilm X-A2",
+    id: "fujifilm-xa3",
+    name: "Fujifilm X-A3",
     tagline: "Màu film đặc trưng Fujifilm, selfie hoàn hảo",
     badge: "Giá tốt nhất",
     badgeColor: "bg-green-500",
@@ -37,10 +37,10 @@ const cameras = [
       "Dây đeo + túi đựng",
     ],
     specs: [
-      { label: "Cảm biến", value: "16.3MP APS-C" },
+      { label: "Cảm biến", value: "24.2MP APS-C" },
       { label: "Quay phim", value: "Full HD 1080p" },
       { label: "Màn hình", value: 'Selfie flip 3"' },
-      { label: "Film sim", value: "11 chế độ" },
+      { label: "Film sim", value: "15 chế độ" },
     ],
     highlight: "Ảnh màu film vintage cực đẹp, dễ dùng",
     priceFrom: "90.000đ",
@@ -85,33 +85,31 @@ export default function CameraShowcase() {
           </p>
         </div>
 
-        {/* Camera Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Camera Cards — mobile 1 cột, tablet 2 cột, desktop 3 cột */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {cameras.map((camera) => (
             <article
               key={camera.id}
-              className="bg-mato-cream rounded-3xl overflow-hidden card-hover border border-mato-cream-dark shadow-sm"
+              className="bg-mato-cream rounded-3xl overflow-hidden card-hover border border-mato-cream-dark shadow-sm flex flex-col"
             >
-              {/* Camera image area */}
+              {/* Camera image area — fixed height */}
               <div
-                className={`relative h-56 bg-gradient-to-br ${camera.bgColor} flex items-center justify-center overflow-hidden`}
+                className={`relative h-56 flex-shrink-0 bg-gradient-to-br ${camera.bgColor} overflow-hidden`}
               >
                 <Image
                   src={camera.image}
                   alt={`${camera.name} - máy ảnh cho thuê tại Tiệm MATO`}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-contain p-6 drop-shadow-lg transition-transform duration-500 hover:scale-105"
+                  className="object-contain p-6 drop-shadow-lg transition-transform duration-500 hover:scale-105 mix-blend-multiply"
                   priority={camera.id === "canon-r50"}
                 />
-
                 {/* Badge */}
                 <span
                   className={`absolute top-4 right-4 z-10 ${camera.badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full shadow`}
                 >
                   {camera.badge}
                 </span>
-
                 {/* Price tag */}
                 <div className="absolute bottom-4 left-4 z-10 bg-white/95 backdrop-blur rounded-xl px-3 py-1.5 shadow-md">
                   <p className="text-xs text-mato-text-light leading-none mb-0.5">Từ</p>
@@ -122,8 +120,8 @@ export default function CameraShowcase() {
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-6">
+              {/* Content — flex-col để button luôn ở dưới cùng */}
+              <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-bold text-mato-brown-dark mb-1">
                   {camera.name}
                 </h3>
@@ -154,8 +152,8 @@ export default function CameraShowcase() {
                   </ul>
                 </div>
 
-                {/* Specs */}
-                <div className="border-t border-mato-cream-dark pt-4">
+                {/* Specs — flex-1 đẩy button xuống đáy */}
+                <div className="border-t border-mato-cream-dark pt-4 flex-1">
                   <p className="text-xs font-bold text-mato-brown uppercase tracking-wide mb-2">
                     Thông số:
                   </p>
@@ -174,6 +172,7 @@ export default function CameraShowcase() {
                   </div>
                 </div>
 
+                {/* Button luôn ở dưới cùng */}
                 <a
                   href="#pricing"
                   className="mt-5 w-full block text-center bg-mato-brown text-white text-sm font-semibold py-2.5 rounded-xl hover:bg-mato-brown-dark transition-colors"

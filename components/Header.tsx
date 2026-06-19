@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { SITE_CONFIG } from "@/lib/config";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -15,7 +16,7 @@ export default function Header() {
     { href: "#cameras", label: "Máy Ảnh" },
     { href: "#pricing", label: "Bảng Giá" },
     { href: "#how-to-rent", label: "Cách Thuê" },
-    { href: "#why-us", label: "Tại Sao Chọn Chúng Tôi" },
+    { href: "#why-us", label: "Vì Sao Chọn Mato" },
     { href: "#faq", label: "FAQ" },
     { href: "#contact", label: "Liên Hệ" },
   ];
@@ -23,20 +24,18 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md"
-          : "bg-transparent"
+        scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
+        <a href="#" className="flex items-center gap-2 group" aria-label="Tiệm MATO - Trang chủ">
           <div className="w-10 h-10 bg-mato-brown rounded-full flex items-center justify-center shadow-md group-hover:bg-mato-orange transition-colors">
-            <span className="text-white text-lg">📷</span>
+            <span className="text-white text-lg" aria-hidden="true">📷</span>
           </div>
           <div>
             <span className="font-serif font-bold text-xl text-mato-brown-dark leading-none block">
-              Tiệm MATO
+              {SITE_CONFIG.name}
             </span>
             <span className="text-xs text-mato-text-light leading-none">
               Máy ảnh cho thuê
@@ -45,19 +44,19 @@ export default function Header() {
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-5" aria-label="Menu chính">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-mato-text hover:text-mato-orange transition-colors"
+              className="text-sm font-medium text-mato-text hover:text-mato-orange transition-colors whitespace-nowrap"
             >
               {link.label}
             </a>
           ))}
           <a
-            href="tel:0869209674"
-            className="btn-primary text-sm py-2 px-5"
+            href={`tel:${SITE_CONFIG.phone}`}
+            className="btn-primary text-sm py-2 px-5 whitespace-nowrap"
           >
             📞 Thuê Ngay
           </a>
@@ -65,28 +64,23 @@ export default function Header() {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden p-2 text-mato-brown"
+          className="lg:hidden p-2 text-mato-brown"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? "Đóng menu" : "Mở menu"}
+          aria-expanded={menuOpen}
         >
           <div className="w-6 flex flex-col gap-1.5">
-            <span
-              className={`block h-0.5 bg-current transition-all ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
-            />
-            <span
-              className={`block h-0.5 bg-current transition-all ${menuOpen ? "opacity-0" : ""}`}
-            />
-            <span
-              className={`block h-0.5 bg-current transition-all ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
-            />
+            <span className={`block h-0.5 bg-current transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block h-0.5 bg-current transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block h-0.5 bg-current transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
           </div>
         </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-lg border-t border-mato-cream-dark">
-          <nav className="flex flex-col py-4">
+        <div className="lg:hidden bg-white shadow-lg border-t border-mato-cream-dark">
+          <nav className="flex flex-col py-4" aria-label="Menu di động">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -97,12 +91,22 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
-            <div className="px-6 pt-3">
+            <div className="px-6 pt-3 pb-1">
               <a
-                href="tel:0869209674"
-                className="btn-primary text-sm py-2 px-5 block text-center"
+                href={`tel:${SITE_CONFIG.phone}`}
+                className="btn-primary text-sm py-2.5 px-5 block text-center"
               >
-                📞 Thuê Ngay
+                📞 Gọi: {SITE_CONFIG.phoneDisplay}
+              </a>
+            </div>
+            <div className="px-6 pb-3 pt-2">
+              <a
+                href={SITE_CONFIG.facebookProfile}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary text-sm py-2.5 px-5 block text-center"
+              >
+                💬 Nhắn Facebook
               </a>
             </div>
           </nav>
