@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+/* Fonts được load qua layout.tsx <head> — không cần @import ở đây */
 
 :root {
   --brown: #8B5E3C;
@@ -13,10 +13,7 @@
   --orange: #D4862A;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
+/* scroll-smooth đã set qua class ở <html> trong layout.tsx */
 body {
   background-color: var(--cream);
   color: var(--brown-dark);
@@ -25,11 +22,11 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply bg-mato-orange hover:bg-mato-orange-dark text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+    @apply bg-mato-orange hover:bg-mato-orange-dark text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer;
   }
 
   .btn-secondary {
-    @apply border-2 border-mato-brown text-mato-brown hover:bg-mato-brown hover:text-white font-semibold py-3 px-8 rounded-full transition-all duration-300;
+    @apply border-2 border-mato-brown text-mato-brown hover:bg-mato-brown hover:text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 cursor-pointer;
   }
 
   .section-title {
@@ -41,9 +38,18 @@ body {
   }
 }
 
-/* Custom scrollbar */
+/* Hide scrollbar cross-browser — dùng thay cho scrollbar-hide plugin */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom scrollbar cho body */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--cream-dark);

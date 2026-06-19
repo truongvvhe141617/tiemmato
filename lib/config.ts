@@ -15,9 +15,12 @@ export const SITE_CONFIG = {
   hoursSchema: "Mo-Su 07:00-21:00",
 
   // Mạng xã hội
+  // facebookProfile: trang cá nhân / share link
   facebookProfile: "https://www.facebook.com/share/1AbyTMuZ7i/?mibextid=wwXIfr",
+  // facebookPage: fanpage (cập nhật khi có URL fanpage riêng)
   facebookPage: "https://www.facebook.com/share/1AbyTMuZ7i/?mibextid=wwXIfr",
-  messengerUrl: "https://m.me/NguyenThiThoaa",
+  // messengerUrl: link nhắn tin trực tiếp qua Messenger
+  messengerUrl: "https://www.facebook.com/share/1AbyTMuZ7i/?mibextid=wwXIfr",
 
   // SEO
   priceRange: "90.000đ - 220.000đ",

@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/config";
-
 const cameras = [
   { name: "Canon EOS R50", image: "/images/r50.jpg" },
   { name: "Fujifilm X-A3", image: "/images/xa3.webp" },
@@ -245,16 +244,16 @@ export default function PricingTable() {
 
         {/* CTA */}
         <div className="text-center mt-10 flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="tel:0869209674" className="btn-primary text-base">
-            📞 Đặt Thuê Ngay: 0869 209 674
+          <a href={`tel:${SITE_CONFIG.phone}`} className="btn-primary text-base">
+            📞 Đặt Thuê Ngay: {SITE_CONFIG.phoneDisplay}
           </a>
           <a
-            href="https://www.facebook.com/NguyenThiThoaa"
+            href={SITE_CONFIG.facebookProfile}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary text-base"
           >
-            💬 Facebook
+            💬 Nhắn Facebook
           </a>
         </div>
       </div>

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { SITE_CONFIG } from "@/lib/config";
 
 const faqs = [
   {
@@ -108,10 +109,10 @@ export default function FAQ() {
             Tiệm luôn sẵn sàng giải đáp
           </p>
           <a
-            href="tel:0869209674"
+            href={`tel:${SITE_CONFIG.phone}`}
             className="btn-primary text-sm"
           >
-            📞 Gọi Ngay: 0869 209 674
+            📞 Gọi Ngay: {SITE_CONFIG.phoneDisplay}
           </a>
         </div>
       </div>

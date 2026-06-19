@@ -41,6 +41,8 @@ const steps = [
   },
 ];
 
+import { SITE_CONFIG } from "@/lib/config";
+
 export default function HowToRent() {
   return (
     <section id="how-to-rent" className="py-20 bg-white">
@@ -105,14 +107,14 @@ export default function HowToRent() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="tel:0869209674"
+              href={`tel:${SITE_CONFIG.phone}`}
               className="btn-primary"
               aria-label="Gọi điện đặt thuê máy ảnh"
             >
-              📞 Gọi: 0869 209 674
+              📞 Gọi: {SITE_CONFIG.phoneDisplay}
             </a>
             <a
-              href="https://m.me/NguyenThiThoaa"
+              href={SITE_CONFIG.messengerUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"

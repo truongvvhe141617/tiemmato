@@ -112,7 +112,6 @@ const jsonLd = {
   },
   sameAs: [
     SITE_CONFIG.facebookProfile,
-    SITE_CONFIG.facebookPage,
   ],
   openingHours: SITE_CONFIG.hoursSchema,
   priceRange: SITE_CONFIG.priceRange,
