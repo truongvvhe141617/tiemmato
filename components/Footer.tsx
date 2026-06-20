@@ -21,7 +21,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed">
-              Cho thuê máy ảnh chuyên nghiệp tại Hà Nội. Lưu giữ khoảnh khắc
+              Cho thuê máy ảnh chuyên nghiệp tại Sóc Sơn, Hà Nội. Lưu giữ khoảnh khắc
               đẹp với chi phí tiết kiệm.
             </p>
           </div>

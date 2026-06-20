@@ -21,7 +21,7 @@ const steps = [
     title: "Nhận Máy & Phụ Kiện",
     description:
       "Nhận máy tại tiệm hoặc thỏa thuận giao nhận. Máy kèm đầy đủ: body, lens kit, pin, sạc, thẻ nhớ, dây đeo, túi đựng.",
-    detail: "Bắc Từ Liêm, Hà Nội",
+    detail: "Sóc Sơn, Hà Nội",
   },
   {
     step: "04",

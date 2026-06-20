@@ -33,7 +33,7 @@ const reasons = [
     icon: "📍",
     title: "Địa Điểm Thuận Tiện",
     description:
-      "Tọa lạc tại Bắc Từ Liêm, Hà Nội. Dễ đặt, dễ nhận máy. Có thể thỏa thuận giao nhận tận nơi.",
+      "Tọa lạc tại Sóc Sơn, Hà Nội. Dễ đặt, dễ nhận máy. Có thể thỏa thuận giao nhận tận nơi.",
   },
 ];
 

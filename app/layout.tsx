@@ -85,6 +85,7 @@ export const metadata: Metadata = {
   // ─── App icons — tự động detect từ app/icon.tsx và app/apple-icon.tsx ──────
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
       { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/icon", sizes: "32x32", type: "image/png" },
     ],
@@ -125,7 +126,7 @@ const jsonLd = [
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
-      reviewCount: "100",
+      reviewCount: "3",
       bestRating: "5",
       worstRating: "1",
     },
@@ -161,12 +162,6 @@ const jsonLd = [
             itemCondition: "https://schema.org/UsedCondition",
             description: "Bao gồm body + lens kit 18-45mm, pin, sạc, thẻ nhớ, dây đeo, túi đựng",
           },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.9",
-            reviewCount: "50",
-            bestRating: "5",
-          },
         },
       },
       {
@@ -193,12 +188,6 @@ const jsonLd = [
             availability: "https://schema.org/InStock",
             itemCondition: "https://schema.org/UsedCondition",
             description: "Bao gồm body + lens kit 16-50mm, pin, sạc, thẻ nhớ, dây đeo, túi đựng",
-          },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.8",
-            reviewCount: "30",
-            bestRating: "5",
           },
         },
       },
