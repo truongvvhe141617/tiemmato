@@ -226,6 +226,69 @@ const jsonLd = [
       },
     ],
   },
+  // Schema 3: FAQPage — Google hiển thị rich snippet câu hỏi trực tiếp trên SERP
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Thuê máy ảnh tại Tiệm MATO cần chuẩn bị gì?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Chỉ cần mang theo CCCD/CMND bản gốc và tiền đặt cọc theo giá trị máy. Đơn giản vậy thôi!",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Tiền cọc thuê máy ảnh là bao nhiêu và có được hoàn lại không?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Tiền cọc tương đương một phần giá trị máy. Hoàn 100% khi bạn trả máy đúng hạn, đầy đủ phụ kiện và nguyên vẹn.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Tiệm MATO có giao máy ảnh tận nơi tại Sóc Sơn không?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Có thể thỏa thuận giao/nhận tận nơi trong khu vực Sóc Sơn và Hà Nội. Liên hệ 0869 209 674 để biết chi tiết.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Chưa biết dùng máy ảnh có thuê được không?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Hoàn toàn được! Tiệm MATO hướng dẫn cơ bản cách sử dụng máy miễn phí khi nhận máy. Trong quá trình thuê có thắc mắc cứ nhắn tin hỏi.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Giá thuê máy ảnh tại Tiệm MATO là bao nhiêu?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Giá thuê từ 90.000đ/6 tiếng cho Fujifilm X-A3, 140.000đ/6 tiếng cho Canon EOS R50, và 200.000đ/6 tiếng cho Fujifilm X-T30. Bao gồm đầy đủ body, lens kit, pin, sạc, thẻ nhớ, dây đeo và túi đựng.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Tiệm MATO cho thuê những loại máy ảnh nào?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Tiệm MATO cho thuê 3 dòng máy ảnh mirrorless: Canon EOS R50, Fujifilm X-A3 và Fujifilm X-T30. Tất cả đều kèm đầy đủ phụ kiện.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Có thể thuê máy ảnh hơn 5 ngày không?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Có. Liên hệ trực tiếp qua số 0869 209 674 để được báo giá ưu đãi cho thuê dài ngày tại Sóc Sơn, Hà Nội.",
+        },
+      },
+    ],
+  },
 ];
 
 // ─── Layout ──────────────────────────────────────────────────────────────────
