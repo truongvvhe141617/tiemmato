@@ -82,11 +82,7 @@ export const metadata: Metadata = {
     google: "your-google-verification-code",
   },
 
-  // ─── App icons ───────────────────────────────────────────────────────────
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
+  // ─── App icons — tự động detect từ app/icon.tsx và app/apple-icon.tsx ──────
 };
 
 // ─── JSON-LD Structured Data ─────────────────────────────────────────────────
