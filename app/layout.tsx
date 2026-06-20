@@ -83,6 +83,13 @@ export const metadata: Metadata = {
   },
 
   // ─── App icons — tự động detect từ app/icon.tsx và app/apple-icon.tsx ──────
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 // ─── JSON-LD Structured Data ─────────────────────────────────────────────────
