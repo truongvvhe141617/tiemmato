@@ -2,49 +2,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/config";
-const cameras = [
-  { name: "Canon EOS R50", image: "/images/r50.jpg" },
-  { name: "Fujifilm X-A3", image: "/images/xa3.webp" },
-  { name: "Fujifilm X-T30", image: "/images/xt30.avif" },
-];
+import { PRICING_CAMERAS, PRICING_ROWS, RENTAL_NOTES } from "@/lib/data/pricing";
 
-const pricing = [
-  {
-    duration: "6 Tiếng",
-    icon: "⏰",
-    description: "Buổi chụp ngoại cảnh, sự kiện",
-    prices: ["140.000đ", "90.000đ", "200.000đ"],
-    highlight: false,
-  },
-  {
-    duration: "1 Ngày",
-    icon: "📅",
-    description: "Một ngày du lịch, tham quan",
-    prices: ["180.000đ", "120.000đ", "250.000đ"],
-    highlight: true,
-  },
-  {
-    duration: "3 Ngày",
-    icon: "🗓️",
-    description: "Chuyến du lịch ngắn ngày",
-    prices: ["170.000đ/ngày", "110.000đ/ngày", "240.000đ/ngày"],
-    highlight: false,
-  },
-  {
-    duration: "5 Ngày",
-    icon: "📆",
-    description: "Kỳ nghỉ, chuyến công tác",
-    prices: ["160.000đ/ngày", "100.000đ/ngày", "230.000đ/ngày"],
-    highlight: false,
-  },
-];
-
-const notes = [
-  "Đặt cọc theo giá trị máy (hoàn trả khi trả máy đúng hạn)",
-  "Xuất trình CCCD khi thuê",
-  "Không tự ý tháo máy, mở vào nước",
-  "Hỏng hóc, mất mát tự thương theo thỏa thuận",
-];
+const cameras = PRICING_CAMERAS;
+const pricing = PRICING_ROWS;
+const notes = RENTAL_NOTES;
 
 export default function PricingTable() {
   const [selectedCamera, setSelectedCamera] = useState<number | null>(null);

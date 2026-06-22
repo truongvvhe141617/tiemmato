@@ -1,3 +1,5 @@
+import { SITE_CONFIG } from "@/lib/config";
+
 const steps = [
   {
     step: "01",
@@ -40,8 +42,6 @@ const steps = [
     detail: "Hoàn cọc ngay lập tức",
   },
 ];
-
-import { SITE_CONFIG } from "@/lib/config";
 
 export default function HowToRent() {
   return (

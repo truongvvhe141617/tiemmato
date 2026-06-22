@@ -1,41 +1,9 @@
 "use client";
 import { useState } from "react";
 import { SITE_CONFIG } from "@/lib/config";
+import { getFAQsByCategory } from "@/lib/data/faqs";
 
-const faqs = [
-  {
-    q: "Tôi cần chuẩn bị gì để thuê máy?",
-    a: "Bạn chỉ cần mang theo CCCD/CMND bản gốc và tiền đặt cọc theo giá trị máy. Đơn giản vậy thôi!",
-  },
-  {
-    q: "Tiền cọc là bao nhiêu và có được hoàn lại không?",
-    a: "Tiền cọc tương đương một phần giá trị máy (tiệm sẽ thông báo cụ thể khi liên hệ). Hoàn 100% khi bạn trả máy đúng hạn, đầy đủ phụ kiện và nguyên vẹn.",
-  },
-  {
-    q: "Có thể thuê máy giao tận nơi không?",
-    a: "Có thể thỏa thuận giao/nhận tận nơi trong khu vực Hà Nội. Liên hệ tiệm để biết chi tiết phí vận chuyển (nếu có).",
-  },
-  {
-    q: "Nếu tôi chưa biết dùng máy ảnh thì sao?",
-    a: "Không vấn đề gì! Tiệm sẽ hướng dẫn cơ bản cách sử dụng máy miễn phí khi bạn nhận máy. Trong quá trình thuê nếu có thắc mắc cứ nhắn tin hỏi.",
-  },
-  {
-    q: "Có thể thuê theo giờ không?",
-    a: "Gói ngắn nhất là 6 tiếng. Nếu cần thuê ít hơn, liên hệ tiệm để được tư vấn gói phù hợp.",
-  },
-  {
-    q: "Máy bị lỗi hoặc hỏng trong quá trình thuê thì xử lý thế nào?",
-    a: "Trường hợp lỗi do máy (không phải do người dùng), tiệm sẽ hỗ trợ đổi máy khác. Nếu do tác động bên ngoài, hai bên thỏa thuận hợp lý và công bằng.",
-  },
-  {
-    q: "Có cho thuê dài hạn hơn 5 ngày không?",
-    a: "Có. Liên hệ trực tiếp để được báo giá ưu đãi cho thuê dài ngày.",
-  },
-  {
-    q: "Thẻ nhớ đã có ảnh của người khác không?",
-    a: "Thẻ nhớ luôn được format sạch trước khi đưa cho khách mới. Bạn an tâm hoàn toàn.",
-  },
-];
+const faqs = getFAQsByCategory("camera-rental");
 
 export default function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
