@@ -81,16 +81,6 @@ export const metadata: Metadata = {
   // verification: {
   //   google: "abc123xyz...",
   // },
-
-  // ─── App icons ─────────────────────────────────────────────────────────────
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-    shortcut: "/favicon.ico",
-  },
 };
 
 // ─── JSON-LD Structured Data ─────────────────────────────────────────────────
@@ -398,6 +388,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="vi" className="scroll-smooth">
       <head>
+        {/* ─── Favicon & App Icons — hardcode để tránh Next.js inject migration script ─── */}
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" type="image/x-icon" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" type="image/png" />
+
         {/* Google Fonts — preconnect trước để giảm latency */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
