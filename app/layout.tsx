@@ -77,12 +77,12 @@ export const metadata: Metadata = {
   },
 
   // ─── Google Search Console verification ─────────────────────────────────
-  // Thay "your-google-verification-code" bằng code thật sau khi verify
-  verification: {
-    google: "your-google-verification-code",
-  },
+  // Uncomment và thay code thật sau khi verify tại search.google.com/search-console
+  // verification: {
+  //   google: "abc123xyz...",
+  // },
 
-  // ─── App icons — tự động detect từ app/icon.tsx và app/apple-icon.tsx ──────
+  // ─── App icons ─────────────────────────────────────────────────────────────
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
